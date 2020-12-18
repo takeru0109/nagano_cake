@@ -10,12 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_17_151702) do
+ActiveRecord::Schema.define(version: 2020_12_18_142608) do
 
   create_table "addresses", force: :cascade do |t|
     t.string "postal_code"
     t.string "address"
     t.string "receiver_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "genres", force: :cascade do |t|
+    t.string "name"
+    t.boolean "status", default: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
