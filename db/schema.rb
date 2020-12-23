@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_19_103612) do
+ActiveRecord::Schema.define(version: 2020_12_19_123925) do
 
   create_table "addresses", force: :cascade do |t|
     t.string "postal_code"
@@ -18,12 +18,27 @@ ActiveRecord::Schema.define(version: 2020_12_19_103612) do
     t.string "receiver_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
+  end
+
+  create_table "admins", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_admins_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
   end
 
   create_table "cart_items", force: :cascade do |t|
     t.integer "item_count"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.integer "item_id"
   end
 
   create_table "genres", force: :cascade do |t|
@@ -31,6 +46,7 @@ ActiveRecord::Schema.define(version: 2020_12_19_103612) do
     t.boolean "status", default: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
   end
 
   create_table "items", force: :cascade do |t|
@@ -39,6 +55,26 @@ ActiveRecord::Schema.define(version: 2020_12_19_103612) do
     t.string "image_id"
     t.boolean "status", default: true
     t.integer "price"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "order_items", force: :cascade do |t|
+    t.integer "making_status", default: 0
+    t.integer "item_count"
+    t.integer "ordered_price"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.integer "payment_method"
+    t.integer "shipping", default: 800
+    t.integer "billing_amount"
+    t.integer "order_status", default: 0
+    t.string "ordered_postal_code"
+    t.string "ordered_address"
+    t.string "ordered_receiver_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
