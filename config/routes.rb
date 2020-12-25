@@ -44,4 +44,4 @@ Rails.application.routes.draw do
     resources :order_items, only: [:update]
     get "search" => "search#search"
   end
- end
+end
