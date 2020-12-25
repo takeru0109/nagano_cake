@@ -1,4 +1,4 @@
-class HomesController < ApplicationController
+class HomeController < ApplicationController
   def top
     @genres = Genre.where(status: true)
     @item1 = Item.first

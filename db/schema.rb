@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_19_123925) do
+ActiveRecord::Schema.define(version: 2020_12_23_154057) do
 
   create_table "addresses", force: :cascade do |t|
     t.string "postal_code"
