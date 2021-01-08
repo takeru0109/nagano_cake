@@ -2,11 +2,11 @@ class UsersController < ApplicationController
 	before_action :baria_user
 
 	def show
-		@users = User.all
-		@user = User.find(params[:id])
+				@users = User.all
+				@user = User.find(params[:id])
 			if @user != current_user
-			redirect_to root_path
-		end
+				redirect_to root_path
+		  end
 	end
 
 	def edit

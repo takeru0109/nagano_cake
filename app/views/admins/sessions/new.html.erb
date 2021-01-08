@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <p class="login-title col-xs-offset-2">会員の方はこちらからログイン</p>
+    <p class="login-title col-xs-offset-2">管理者ログイン</p>
 
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <div class="form-horizontal">
@@ -17,14 +17,10 @@
         </div>
         <div class="col-xs-6"><%= f.password_field :password, autocomplete: "current-password", class: "form-control" %></div>
       </div>
-      <p class="col-xs-offset-8"><%= link_to "=>パスワードを忘れた方はこちら", new_user_password_path %></p>
       <div class="actions">
         <%= f.submit "ログイン", class: "new-btn btn btn-primary col-xs-offset-5" %>
       </div>
     </div>
     <% end %>
-
-    <p class="login-title col-xs-offset-2">登録がお済みではない方</p>
-    <p class="sign-up-link col-xs-offset-3"><%= link_to "こちら",new_user_registration_path, class: "kotira" %>から新規登録を行ってください。</p>
   </div>
 </div>
